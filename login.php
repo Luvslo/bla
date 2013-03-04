@@ -5,13 +5,16 @@ if (mysqli_connect_errno()) {
 }
 if (isset ($_POST['user']) and isset ($_POST['passwd'])) {
 	$pwdenc = hash('sha256',$_POST['passwd']);
-	setcookie ("session", $pwdenc);
 	$sql = "SELECT passwd FROM user WHERE name='".$_POST['user']."';";
 	$res = $db->query($sql);
 	$passwd = $res->fetch_assoc();
 	$passwd = $passwd['passwd'];
 	if ($passwd == $pwdenc) {
 		header("Location: test.html");
+		$session = md5(time().$passwd);
+		setcookie ("session", $session);
+		$sql = "UPDATE user SET session=\"".$session."\" WHERE name=\"".$_POST['user']."\";";
+		$res = $db->query($sql);
 	}
 }
 ?>
