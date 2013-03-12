@@ -332,6 +332,10 @@ p.friend:hover, p.group:hover {
 background-color:#eee;
 }
 
+p.friend a:hover, p.group a:hover {
+text-decoration:underline;
+}
+
 span.frienddesc {
 color:#999;
 display:inline-block;
@@ -502,4 +506,47 @@ text-decoration:none;
 
 #logout:hover {
 opacity:1.0;
+}
+
+div.messagebox {
+border-radius:5px;
+padding:5px;
+font-size:18px;
+text-shadow:1px 1px 1px #fff;
+color:#000;
+background-image:-moz-linear-gradient(top,#999,#888);
+border:2px solid #fff;
+box-shadow:inset 0px 0px 10px 0px rgba(0,0,0,0.5), 0px 0px 4px 0px #000;
+position:fixed;
+margin-top:10px;
+text-align:center;
+width:512px;
+left:50%;
+margin-left:-256px;
+z-index:10;
+animation-duration:5s;
+animation-name:vanish;
+opacity:0.0;
+top:-80px;
+}
+
+div.messagebox p {
+margin:0px;
+padding:5px;
+font-size:18px;
+}
+
+@keyframes vanish {
+from {
+opacity:1.0;
+top:0px;
+}
+to {
+opacity:0.0;
+top:-80px;
+}
+80% {
+opacity:1.0;
+top:0px;
+}
 }

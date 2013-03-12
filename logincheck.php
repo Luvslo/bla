@@ -4,7 +4,7 @@ if (isset ($_COOKIE['session']) ) {
 	if (mysqli_connect_errno()) {
 		die ('Konnte keine Verbindung zur Datenbank aufbauen: '.mysqli_connect_error().'('.mysqli_connect_errno().')');
 	}
-	$sql = "SELECT uid FROM user WHERE session=".$_COOKIE['session'].";";
+	$sql = "SELECT uid FROM user WHERE session='".$_COOKIE['session']."';";
 	$res = $db->query($sql);
 	if ($res) {
 	}
