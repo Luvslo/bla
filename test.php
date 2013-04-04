@@ -1,4 +1,8 @@
-<?php include("logincheck.php"); ?>
+<?php
+include("logincheck.php");
+include("getuid.php");
+include("post.php");
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,38 +24,18 @@
 			</div>
 			<div id="main">
 				<h1>Alles</h1>
-				<div class="post">
-					<div class="postheader">
-						<div class="imgcontainer"><img src="placeholder_tiny.png"></div>
-						<div class="titlebar">
-							<p class="namedate"><a href=""><span class="name">Niemand</span></a><span class="date">19:44 22 Jan 2013</span></p>
-							<div class="usermenu">
-								<p>
-									<a class="posticon" href=""><img src="img/bookmark.png" class="inormal"><img src="img/bookmarka.png" class="ihover"></a>
-									<span class="tooltip">Merken</span>
-									<a class="posticon" href=""><img src="img/view.png" class="inormal"><img src="img/viewa.png" class="ihover"></a>
-									<span class="tooltip">Ansehen</span>
-									<a class="posticon" href=""><img src="img/write.png" class="inormal"><img src="img/writea.png" class="ihover"></a>
-									<span class="tooltip">Nachricht</span>
-									<a class="posticon" href=""><img src="img/abo.png" class="inormal"><img src="img/aboa.png" class="ihover"></a>
-									<span class="tooltip">Empfangen</span>
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="postbody"><p>Stefan Zweig wurde als Sohn des wohlhabenden jüdischen Textilunternehmers Moritz Zweig und dessen Gattin Ida Brettauer, Spross eines reichen Kaufmannsgeschlechts aus Hohenems, geboren. Er wuchs gemeinsam mit seinem Bruder Alfred in einer prächtigen Wohnung am Wiener Schottenring auf. Die Familie Zweig war nicht religiös, Zweig selbst bezeichnete sich später als „Juden aus Zufall“. (siehe <a href="http://de.wikipedia.org/wiki/Stefan_Zweig">Wikipedia</a>)</p>
-					</div>
-					<div class="postfooter">
-						<p>
-							<a class="posticon" href=""><img src="img/forward.png" class="inormal"><img src="img/forwarda.png" class="ihover"></a>
-							<span class="tooltip">Weiterleiten</span>
-							<a class="posticon" href=""><img src="img/answer.png" class="inormal"><img src="img/answera.png" class="ihover"></a>
-							<span class="tooltip">Antworten</span>
-							<a class="posticon" href=""><img src="img/comment.png" class="inormal"><img src="img/commenta.png" class="ihover"></a>
-							<span class="tooltip">Kommentieren</span>
-						</p>
-					</div>
-				</div>
+				<?php
+					post("Niemand",1365078659,"Stefan Zweig wurde als Sohn des wohlhabenden jüdischen Textilunternehmers Moritz Zweig und dessen Gattin Ida Brettauer, Spross eines reichen Kaufmannsgeschlechts aus Hohenems, geboren. Er wuchs gemeinsam mit seinem Bruder Alfred in einer prächtigen Wohnung am Wiener Schottenring auf. Die Familie Zweig war nicht religiös, Zweig selbst bezeichnete sich später als „Juden aus Zufall“. (siehe <a href=\"http://de.wikipedia.org/wiki/Stefan_Zweig\">Wikipedia</a>)");
+				$db = @new mysqli('localhost', 'sn', 'php', 'sn');
+				if (mysqli_connect_errno()) {
+					die ('Konnte keine Verbindung zur Datenbank aufbauen: '.mysqli_connect_error().'('.mysqli_connect_errno().')');
+				}
+				$sql = "SELECT content, time, name FROM post, user WHERE dest=".$uid." AND src=uid";
+				$res = $db->query($sql);
+				while ($row = $res->fetch_assoc()) {
+					post($row['name'], $row['time'], $row['content']);
+				}
+				?>
 				<form>
 					<div class="send">
 						<textarea></textarea>

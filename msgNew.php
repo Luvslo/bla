@@ -1,3 +1,7 @@
+<?php
+include("logincheck.php");
+include("getuid.php");
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,7 +10,11 @@
 		<link rel="stylesheet" href="main.css">
 	</head>
 	<body>
-		<?php include 'header.html';?>
+	<?php
+		if (isset($_GET['msg'])) {
+			echo "<div class=\"messagebox\"><p>".$_GET['msg']."</p></div>";
+		}
+		?>
 		<div id="content">
 			<div id="profile">
 				<h1>Profil</h1>
@@ -20,7 +28,7 @@
 						<p>Empfänger: <input type="text" name="dest"></p>
 						<textarea class="msgtext" name="content"></textarea>
 						<input type="submit" class="msgsubmit" value="Weiterleiten">
-						<input type="hidden" name="user" value="1">
+						<input type="hidden" name="user" value="<?php echo $uid; ?>">
 					<form>
 				</div>
 			</div>
