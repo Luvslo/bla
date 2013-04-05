@@ -6,7 +6,8 @@ if (isset ($_COOKIE['session']) ) {
 	}
 	$sql = "SELECT uid FROM user WHERE session='".$_COOKIE['session']."';";
 	$res = $db->query($sql);
-	if ($res) {
+	$row = $res->fetch_assoc();
+	if ($row) {
 	}
 	else {
 		header("Location: mlogin.php?msg=Bitte vorher einloggen.");

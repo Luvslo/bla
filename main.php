@@ -3,6 +3,8 @@ include("logincheck.php");
 include("getuid.php");
 include("post.php");
 include("database.php");
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,10 +53,5 @@ include("database.php");
 		<div id="logout">
 			<a href="logout.php"><img src="img/logout.png"></a>
 		</div>
-		<?php
-			if (isset ($_GET["edit"]) ) {
-				include ("overlay.php");
-			}
-		?>
 	</body>
 </html>

@@ -5,7 +5,7 @@ echo "<div class=\"post\">
 	<div class=\"postheader\">
 		<div class=\"imgcontainer\"><img src=\"placeholder_tiny.png\"></div>
 		<div class=\"titlebar\">
-			<p class=\"namedate\"><a href=\"view.php?uid=".$uid."\"><span class=\"name\">".$name."</span></a><span class=\"date\">".date($df,$time)."</span></a></p>
+			<p class=\"namedate\"><a href=\"main.php?uid=".$uid."\"><span class=\"name\">".$name."</span></a><span class=\"date\">".date($df,$time)."</span></a></p>
 			<div class=\"usermenu\">
 				<p>
 					<a class=\"posticon\" href=\"\"><img src=\"img/bookmark.png\" class=\"inormal\"><img src=\"img/bookmarka.png\" class=\"ihover\"></a>
