@@ -102,3 +102,45 @@ width:512px;
 left:50%;
 margin-left:-256px;
 }
+
+#registerbox {
+width:520px;
+border:1px solid #999;
+position:fixed;
+left:50%;
+margin-left:-260px;
+margin-top:120px;
+}
+
+p.form {
+padding:5px 15px;
+}
+
+p.form input[type=text], p.form input[type=password] {
+height:18px;
+margin-left:0px;
+width:180px;
+}
+
+form.regform {
+margin:10px;
+}
+
+div.registerlink {
+position:fixed;
+top:10px;
+left:10px;
+}
+
+div.registerlink a {
+color:#008fe0;
+text-decoration:none;
+}
+
+div.registerlink a:hover {
+text-decoration:underline;
+}
+
+div.registerlink a:visited {
+color:#aaa;
+}
