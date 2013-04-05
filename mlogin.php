@@ -12,6 +12,7 @@
 		}
 		?>
 		<div style="height:100%; position:absolute; width:100%">
+			<div class="registerlink"><a href="register.html">Registrieren</a></div>
 			<div id="login">
 				<div id="loginform">
 				<form method="POST" action="login.php">
