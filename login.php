@@ -10,7 +10,7 @@ if (isset ($_POST['user']) and isset ($_POST['passwd'])) {
 	$passwd = $res->fetch_assoc();
 	$passwd = $passwd['passwd'];
 	if ($passwd == $pwdenc) {
-		header("Location: test.php?msg=Login erfolgreich.");
+		header("Location: main.php?msg=Login erfolgreich.");
 		$session = md5(time().$passwd);
 		setcookie ("session", $session);
 		$sql = "UPDATE user SET session=\"".$session."\" WHERE name=\"".$_POST['user']."\";";
