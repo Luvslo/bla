@@ -27,6 +27,10 @@ include("database.php");
 			if (isset ($_GET['edit']) ) {
 				include("edit.php");
 			}
+			elseif (isset ($_GET['uid']) ) {
+				include("view.php");
+				view($_GET['uid']);
+			}
 			else {
 				include("pdisp.php");
 			}

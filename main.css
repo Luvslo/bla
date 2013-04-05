@@ -583,7 +583,7 @@ padding:0px;
 }
 
 div.centerbox {
-padding:
+min-width:-moz-available;
 /*width:512px;
 left:50%;
 margin-left:-256px;
