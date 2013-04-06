@@ -8,7 +8,7 @@ echo "<div class=\"post\">
 			<p class=\"namedate\"><a href=\"main.php?uid=".$uid."\"><span class=\"name\">".$name."</span></a><span class=\"date\">".date($df,$time)."</span></a></p>
 			<div class=\"usermenu\">
 				<p>
-					<a class=\"posticon\" href=\"\"><img src=\"img/bookmark.png\" class=\"inormal\"><img src=\"img/bookmarka.png\" class=\"ihover\"></a>
+					<a class=\"posticon\" href=\"addknown.php?uid=".$uid."\"><img src=\"img/bookmark.png\" class=\"inormal\"><img src=\"img/bookmarka.png\" class=\"ihover\"></a>
 					<span class=\"tooltip\">Merken</span>
 					<a class=\"posticon\" href=\"\"><img src=\"img/view.png\" class=\"inormal\"><img src=\"img/viewa.png\" class=\"ihover\"></a>
 					<span class=\"tooltip\">Ansehen</span>

@@ -40,8 +40,7 @@ ini_set('display_errors', 1);
 			<div id="left">
 				<h1>Bekannte</h1>
 				<div class="friends">
-					<p class="friend"><a href="">Stefan Zweig</a></p>
-					<p class="friend"><a href="">Thomas Mann</a></p>
+					<?php include("knowndisp.php"); ?>
 				</div>
 				<h1>Verteiler</h1>
 				<div class="groups">

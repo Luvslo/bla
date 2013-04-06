@@ -14,7 +14,7 @@ function view ($uid) {
 					</div>
 					<h1>".$data['name']."</h1>
 					<h2>Beschreibung</h2>
-					<p>".$data['desp'].".</p>
+					<p>".$data['desp']."</p>
 				</div>
 			</div>";
 }
