@@ -1,20 +1,26 @@
 <?php
+//SQL-Injection safe
 $db = @new mysqli('localhost', 'sn', 'php', 'sn');
 if (mysqli_connect_errno()) {
     die ('Konnte keine Verbindung zur Datenbank aufbauen: '.mysqli_connect_error().'('.mysqli_connect_errno().')');
 }
-if (isset ($_POST['user']) and isset ($_POST['passwd'])) {
+if (isset($_POST['user'],$_POST['passwd']) ) {
 	$pwdenc = hash('sha256',$_POST['passwd']);
-	$sql = "SELECT passwd FROM user WHERE name='".$_POST['user']."';";
-	$res = $db->query($sql);
-	$passwd = $res->fetch_assoc();
-	$passwd = $passwd['passwd'];
+	$sql = "SELECT passwd FROM user WHERE name=?;";
+	$stmt = $db->prepare($sql);
+	$stmt->bind_param('s',$_POST['user']);
+	$stmt->execute();
+	$stmt->bind_result($passwd);
+	$stmt->fetch();
+	$stmt->close();
 	if ($passwd == $pwdenc) {
 		header("Location: main.php?msg=Login erfolgreich.");
 		$session = md5(time().$passwd);
 		setcookie ("session", $session);
-		$sql = "UPDATE user SET session=\"".$session."\" WHERE name=\"".$_POST['user']."\";";
-		$res = $db->query($sql);
+		$sql = "UPDATE user SET session=\"".$session."\" WHERE name=?;";
+		$stmt = $db->prepare($sql);
+		$stmt->bind_param('s',$_POST['user']);
+		$stmt->execute();
 	}
 }
 ?>
