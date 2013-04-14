@@ -33,6 +33,10 @@ ini_set('display_errors', 1);
 				include("view.php");
 				view($_GET['uid']);
 			}
+			elseif (isset ($_GET['ans']) ) {
+				include("answer.php");
+				answer($_GET['ans']);
+			}
 			else {
 				include("pdisp.php");
 			}

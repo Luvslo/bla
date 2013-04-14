@@ -1,5 +1,5 @@
 <?php
-function post ($name, $uid, $time, $content) {
+function post ($pid, $name, $uid, $time, $content) {
 $df = include("dateformat.php");
 echo "<div class=\"post\">
 	<div class=\"postheader\">
@@ -26,7 +26,7 @@ echo "<div class=\"post\">
 		<p>
 			<a class=\"posticon\" href=\"\"><img src=\"img/forward.png\" class=\"inormal\"><img src=\"img/forwarda.png\" class=\"ihover\"></a>
 			<span class=\"tooltip\">Weiterleiten</span>
-			<a class=\"posticon\" href=\"\"><img src=\"img/answer.png\" class=\"inormal\"><img src=\"img/answera.png\" class=\"ihover\"></a>
+			<a class=\"posticon\" href=\"main.php?ans=".$pid."\"><img src=\"img/answer.png\" class=\"inormal\"><img src=\"img/answera.png\" class=\"ihover\"></a>
 			<span class=\"tooltip\">Antworten</span>
 			<a class=\"posticon\" href=\"\"><img src=\"img/comment.png\" class=\"inormal\"><img src=\"img/commenta.png\" class=\"ihover\"></a>
 			<span class=\"tooltip\">Kommentieren</span>
