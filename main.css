@@ -653,3 +653,10 @@ text-decoration:none;
 border:none;
 color:#000;
 }
+
+span.ans {
+border-left:2px solid #66cc11;
+padding:2px 5px;
+margin:5px 5px;
+display:block;
+}

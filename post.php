@@ -20,7 +20,7 @@ echo "<div class=\"post\">
 			</div>
 		</div>
 	</div>
-	<div class=\"postbody\"><p>".$content."</p>
+	<div class=\"postbody\"><p>".parse($content)."</p>
 	</div>
 	<div class=\"postfooter\">
 		<p>

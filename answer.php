@@ -7,7 +7,7 @@ $stmt->bind_param('i',$ref);
 $stmt->execute();
 $stmt->bind_result($content,$name);
 $stmt->fetch();
-$content = $name.": [".$content."]\n";
+$content = "[".$name.": ".$content."]\n";
 echo "
 <div id=\"main\">
 <div class=\"centerbox\">
